@@ -25,6 +25,7 @@ Any persistent mechanism or malware download from an external source could've be
 
 3. Implement a new way to safely share models (hint: check the library skops) :
 
+```
 import skops.io as sio
 
 sio.dump(model_lr, "model_logistic_regression.skops")
@@ -34,6 +35,7 @@ model_lr_safe = sio.load(
     "model_logistic_regression.skops",
     trusted=unknown_types
 )
+```
 
 # ANSWERS
 

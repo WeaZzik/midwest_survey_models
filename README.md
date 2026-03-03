@@ -16,7 +16,25 @@ A couple of quick models designed for the dataset midwest survey.
 # Steps of the tutorial
 
 1. Look for a file called "security_breach.txt" in your computer. How was it created?
-2. This file created is quite harmless; could you give an example of something that could have been done more harmful?
-3. Implement a new way to safely share models (hint: check the library skops)
 
-Once all these are done, you can continue to the third part of this guided work: prepare a presentation with your group.
+Created by the execution of the transformer file and joblib loading
+
+2. This file created is quite harmless; could you give an example of something that could have been done more harmful?
+
+Any persistent mechanism or malware download from an external source could've been more harmful... since joblib can execute arbitrary code
+
+3. Implement a new way to safely share models (hint: check the library skops) :
+
+import skops.io as sio
+
+sio.dump(model_lr, "model_logistic_regression.skops")
+unknown_types = sio.get_untrusted_types(file="model_logistic_regression.skops")
+
+model_lr_safe = sio.load(
+    "model_logistic_regression.skops",
+    trusted=unknown_types
+)
+
+# ANSWERS
+
+My answers are in the notebooks files, directly in the comments
